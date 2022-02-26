@@ -88,14 +88,15 @@ int main(int argc, char* argv[])
     };
 
 
-    double rate = 0;
-    if(double(un_success) + double(un_fail)) // защита от деление на 0
+    double dbl_rate = 0;
+    double dbl_divider = (double)(un_success + un_fail);
+    if(dbl_divider != 0.0) // защита от деление на 0
     {
-      rate = double(un_success) / (double(un_success) + double(un_fail));
+      dbl_rate = double(un_success) / dbl_divider;
     }
     
     std::cout << "sucesses: " << un_success << ", fails: " << un_fail 
-      << ", rate: " << rate << std::endl;
+      << ", rate: " << dbl_rate << std::endl;
   };
 
   data.close();

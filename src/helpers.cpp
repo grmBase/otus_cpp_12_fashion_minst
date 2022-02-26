@@ -11,8 +11,7 @@
 
 
 
-void split(const std::string& str, char ac_sep, 
-  size_t& aun_type, std::vector<double>& avec_res)
+void split(const std::string& str, size_t& aun_type, std::vector<double>& avec_res)
 {
   bool f_first = true;
 
@@ -44,11 +43,11 @@ bool read_features(std::istream& stream, size_t& aun_type, i_predictor::features
   std::string line;
   std::getline(stream, line);
 
-  if (line.length() == 0) {
+  if(line.length() == 0) {
     return false;
   }
 
-  split(line, ',', aun_type, features);
+  split(line, aun_type, features);
 
   return true;
 }
